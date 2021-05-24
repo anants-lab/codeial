@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title> </title>
+        <link rel="stylesheet" href="/css/layout.css">
+
+        <!-- Placing Style of subpages at right place in layouts -->
+        <%- style %>
+    </head>
+    <body>
+
+        <!-- Importing Partials -->
+        <%- include("./_header.ejs")%>
+        
+        <!-- Views are rendered here in body tag below -->
+        <%- body %>
+        
+        <!-- Importing Partials -->
+        <%- include("./_footer.ejs")%>
+
+        <!-- Placing Scripts of subpages at right place in layouts -->
+        <%- script %>
+    </body>
+</html>
