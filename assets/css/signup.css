@@ -1,0 +1,42 @@
+#sign-up-variable{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: top;
+}
+#sign-up-container {
+    margin-top:20px
+}
+#sign-up-container h1{
+    text-align:center;
+    font-size:30px;
+
+}
+
+#sign-up-form table{
+    text-align: left;
+    font-size:20px;
+    margin-top:30px;
+}
+#sign-up-form table td,th{
+    padding:25px;
+}
+#sign-up-form table th{
+    padding-right:50px;
+}
+#sign-up-form table input{
+    font-size:20px;
+    padding:7px;
+    border: none;
+    border-bottom: 1px solid black;
+    width:300px;
+}
+#submit-btn{
+   margin-left:220px;
+   padding: 8px 10px;
+   width:100px;
+   border:none;
+   font-size:20px;
+   margin-top:15px;
+}

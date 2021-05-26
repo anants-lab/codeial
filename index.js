@@ -20,6 +20,9 @@ app.set("layout extractScripts",true);
 //Using for accessing static files
 app.use(express.static("./assets"));
 
+//For retrieving data from POST 
+app.use(express.urlencoded());
+
 //Tells our app that views that are going to be rendered belong to a layout
 app.use(expressLayouts);
 

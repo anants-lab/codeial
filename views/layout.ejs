@@ -7,15 +7,18 @@
         <%- style %>
     </head>
     <body>
+        <main>
+            
+            <%- include("./_header.ejs")%> <!-- Importing Partials -->
 
-        <!-- Importing Partials -->
-        <%- include("./_header.ejs")%>
+            <section id="mid-content">
+           
+                <%- body %>  <!-- Views are rendered here in body tag below -->
+
+            </section>
         
-        <!-- Views are rendered here in body tag below -->
-        <%- body %>
-        
-        <!-- Importing Partials -->
-        <%- include("./_footer.ejs")%>
+            <%- include("./_footer.ejs")%> <!-- Importing Partials -->
+        </main>
 
         <!-- Placing Scripts of subpages at right place in layouts -->
         <%- script %>
