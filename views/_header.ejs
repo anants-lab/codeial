@@ -6,4 +6,17 @@
 
 <header>
     <h1>Priya's Handicraft and Handlooms</h1>
+    <% if(locals.user){ %>
+        <div id="sign-out-container">
+            <a href="/user/sign-out"><button id="sign-out-btn">Sign Out</button></a>
+        </div>
+    <%} else{%>
+        <div id="sign-up-container">
+            <a href="/user/sign-up"><button id="sign-up-btn">Sign Up</button></a>
+        </div>
+        <div id="sign-in-container">
+            <a href="/user/sign-in"><button id="sign-in-btn">Sign In</button></a>
+        </div>
+    <%}%>
+    
 </header>
