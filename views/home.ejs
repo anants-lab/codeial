@@ -3,10 +3,12 @@
     <div id="home-header">
         <h1>Welcome to our website</h1>
     </div>
+    <%if(locals.user){%>
     <form action="/post/create" id="post-form" method="POST">
         <textarea name="content" id="post-content" cols="30" rows="3" placeholder="Type Here"></textarea>
         <input type="submit" id="post-submit-btn">
     </form>
+    <%}%>
     <div id="post-container">
         <% for(post of posts){ %>
         <div class="each-post">
