@@ -3,9 +3,29 @@
     flex-direction: column;
     height:100%;
     width:100%;
-    justify-content:space-around;
+    align-items: center;
 }
-#home-header{
-    text-align:center;
+#post-submit-btn{
+    display: block;
+    width:80px;
+    padding: 5px;
+    font-size: 15px;
+    margin:auto;
+    margin-top: 10px;
 }
+#post-container{
+    display:flex;
+    flex-direction: column;
+    overflow: scroll;
+    padding:10px;
+    width:40%;
+}
+
+.each-post{
+    box-shadow: 0 0 4px lightgrey;
+    padding:10px;
+    margin-bottom:12px;
+    padding-left:15px;
+}
+
 

@@ -27,6 +27,8 @@ module.exports.create=function(req,res){
 }
 
 module.exports.createSession=function(req,res){
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
     return res.redirect('/');
 }
 

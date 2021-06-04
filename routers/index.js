@@ -12,3 +12,4 @@ router.get("/",homeController.home);
 //For example /users/first , /users/second and so on will all be directed to /users.js
 router.use("/user",require("./user.js"));
 
+router.use("/post",require("./post.js"));

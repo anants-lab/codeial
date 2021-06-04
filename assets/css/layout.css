@@ -7,22 +7,5 @@ main {
   flex-direction: column;
   height: 100vh; }
 
-header {
-  height: 20vh;
-  background-color: lightblue;
-  color: white; }
-
-header h1 {
-  text-align: center;
-  padding-top: 20px; }
-
 #mid-content {
   height: 65vh; }
-
-footer {
-  height: 20vh;
-  background-color: lightblue;
-  color: white; }
-
-footer h1 {
-  text-align: center; }
