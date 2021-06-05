@@ -14,6 +14,9 @@ router.post("/create",userController.create);
 
 //takes 3 argument
 //2nd argument is passport middleware to authenticate user
+//passport.authenticate calls a function in file-->config/passport-local-strategy.js 
+//The function mentioned in new LocalStrategy() --> function(email,password,done){}
+
 router.post("/create-session",passport.authenticate(
     'local',
     {failureRedirect:'/user/sign-in'})

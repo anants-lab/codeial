@@ -15,8 +15,27 @@
             <h3><%= post.user.name %></h3>
             <p><%= post.content %></p>
         </div>
+        <div id="comment-container">
+            <% for(comment of post.comments){ %>
+            <div class="each-comment">
+                <span><%= comment.user.name %></span>
+                <span><%= comment.content %></span>
+            </div>
+        
+            <%}%>
+        </div>
+        <%if(locals.user){%>
+            <div class="post-comment">
+                <form action="/comment/create" method="POST">
+                    <textarea name="content" cols="30" rows="1" placeholder="Comment"></textarea>
+                    <input type="hidden" name="post" value=<%= post._id%>>
+                    <input type="submit">  
+                </form>
+            </div>
+        <%}%>
         <%}%>
     </div>
+    
 </div>
 
 

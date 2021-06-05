@@ -1,3 +1,4 @@
+const Comment = require("../models/comment");
 const Post = require("../models/post");
 
 
@@ -11,3 +12,6 @@ module.exports.create=function(req,res){
         return res.redirect("back");
     })
 }
+
+
+

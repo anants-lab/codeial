@@ -22,22 +22,34 @@ passport.use(new LocalStrategy({
     }
 ));
 
-//serializing the user to decide which key is to be kept in the cookie
-//cookie stores a key to authenticate a user
+//serializing the user to decide which key is to be kept in the session
+//add in value of req.session.passport ie passport:{user:"user_id"}
+//session:{
+//    passport:{
+//       user:"user_id"
+//    }
+// }
 passport.serializeUser(function(user,done){
-    //Encrypts the user id and stores it in a cookie
-    done(null,user.id);
+
+    done(null,user.id); // Here passing user.id stores id of logged in user in session
+    // It also sets req.user to user when we login  
 });
 
+//deserializing a user from "user" in session object 
+//(Identifying the user from session object)
+//session:{
+//    passport:{
+//       user:"user_id"
+//    }
+// }
 
-//deserializing a user from the key in cookie (Identifying the user from cookie)
 passport.deserializeUser(function(id,done){
     User.findById(id,function(err,user){
         if(err){
             console.log("Error in finding user ---> Passport");
             return done(err);
         }
-        return done(null,user);
+        return done(null,user); // It sets req.user after finding a valid user
     });
 });
 
@@ -53,7 +65,7 @@ passport.checkAuthentication= function(req,res,next){
 
 passport.setAuthenticatedUser=function(req,res,next){
     if(req.isAuthenticated()){
-        //req.user contains the current signed in user from the session cookie
+        //req.user contains the current signed in user from the session 
         //And we are just sending this to the locals for the views
         res.locals.user=req.user;
         
