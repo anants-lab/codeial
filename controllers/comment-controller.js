@@ -21,3 +21,21 @@ module.exports.create=(req,res)=>{
     });
 };
 
+module.exports.destroy=(req,res)=>{
+    Comment.findById(req.params.id,(err,comment)=>{
+        if(req.user.id==comment.user){
+            let postid=comment.post;
+            comment.remove();
+
+            Post.findByIdAndUpdate(postid,{$pull:{comments:req.params.id}},(err,post)=>{
+                res.redirect("back");
+            });
+        }
+        else{
+            res.redirect("back");
+        }
+        
+    });
+
+}
+

@@ -13,5 +13,21 @@ module.exports.create=function(req,res){
     })
 }
 
+module.exports.destroy=(req,res)=>{
+    Post.findById(req.params.id,(err,post)=>{
+        //.id means converting Object id into string 
+        if(post.user==req.user.id){
+            post.remove();
+
+            Comment.deleteMany({post:req.params.id},(err)=>{
+                return res.redirect("back");
+            });
+        }
+        else{
+            return res.redirect("back");
+        }
+    })
+}
+
 
 

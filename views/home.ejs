@@ -11,7 +11,11 @@
     <%}%>
     <div id="post-container">
         <% for(post of posts){ %>
+        
         <div class="each-post">
+            <% if(locals.user && post.user.id==locals.user.id){ %>
+            <a href="/post/destroy/<%= post.id %>">x</a>
+            <%}%>
             <h3><%= post.user.name %></h3>
             <p><%= post.content %></p>
         </div>
@@ -20,6 +24,9 @@
             <div class="each-comment">
                 <span><%= comment.user.name %></span>
                 <span><%= comment.content %></span>
+                <% if(locals.user && comment.user.id==locals.user.id){ %>
+                <a href="/comment/destroy/<%= comment.id %>">x</a>
+                <%}%>
             </div>
         
             <%}%>

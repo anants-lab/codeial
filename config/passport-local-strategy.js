@@ -67,13 +67,14 @@ passport.setAuthenticatedUser=function(req,res,next){
     if(req.isAuthenticated()){
         //req.user contains the current signed in user from the session 
         //And we are just sending this to the locals for the views
+        //res.locals is an object passed to whatever rendering engine your app is using (in this case ejs). 
+        //They'll be 'global' in the render
+        //No need to prepend anything(no need of res.locals.user, use directly as locals.user )
         res.locals.user=req.user;
         
     }
     next();
 }
-
-
 
 
 module.exports=passport;
