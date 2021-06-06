@@ -1,9 +1,28 @@
 header{
-    height:20vh;
+    display:flex;
+    height:50px;
     background-color:lightblue;
     color:white;
-    h1{
-        text-align:center;
-        padding-top: 20px;
+    h2{
+        width:65%;
+        margin-top:12px;
+        margin-left:8px;
+        a{
+            text-decoration: none;
+            color:white;
+        }
     }
+    
+}
+
+#header-btn-container{
+    display:flex;
+    flex-direction: row-reverse;
+    width:35%;
+}
+.header-btn{
+    padding:10px;
+    border:none;
+    margin-top:6px;
+    margin-right:6px;
 }

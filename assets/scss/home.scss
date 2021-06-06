@@ -1,9 +1,28 @@
 #home-variable{
     display:flex;
-    flex-direction: column;
-    height:100%;
     width:100%;
+    overflow: scroll;
+}
+#left-side{
+    width:20%;
+    h3{
+        margin-left:10%;
+        margin-bottom: 50px;
+    }
+    border-right: 2px solid lightgrey;
+}
+#friends-list{
+    width:60%;
+    margin:10%;
+}
+#mid-side{
+    display:flex;
+    flex-direction: column;
+    height:100vh;
+    width:60%;
     align-items: center;
+    border-right: 2px solid lightgrey;
+    overflow: scroll;
 }
 #post-submit-btn{
     display: block;
@@ -16,9 +35,8 @@
 #post-container{
     display:flex;
     flex-direction: column;
-    overflow: scroll;
     padding:10px;
-    width:40%;
+    width:60%;
 }
 
 .each-post{
@@ -26,6 +44,10 @@
     padding:10px;
     margin-bottom:12px;
     padding-left:15px;
+    #each-post-content{
+        border-bottom:1px solid lightgrey;
+        margin-bottom: 10px;
+    }
 }
 
 

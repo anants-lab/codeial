@@ -4,8 +4,7 @@ body {
 
 main {
   display: flex;
-  flex-direction: column;
-  height: 100vh; }
+  flex-direction: column; }
 
 #mid-content {
-  height: 65vh; }
+  height: 100vh; }

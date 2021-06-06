@@ -6,18 +6,25 @@
 <link rel="stylesheet" href="/css/header.css">
 
 <header>
-    <h1>Priya's Handicraft and Handlooms</h1>
-    <% if(locals.user){ %>
-        <div id="sign-out-container">
-            <a href="/user/sign-out"><button id="sign-out-btn">Sign Out</button></a>
-        </div>
-    <%} else{%>
-        <div id="sign-up-container">
-            <a href="/user/sign-up"><button id="sign-up-btn">Sign Up</button></a>
-        </div>
-        <div id="sign-in-container">
-            <a href="/user/sign-in"><button id="sign-in-btn">Sign In</button></a>
-        </div>
-    <%}%>
+    <h2><a href="/">Codeial</a></h2>
+    <div id="header-btn-container">
+        <% if(locals.user){ %>
+            <div id="sign-out-btn-container">
+                <a href="/user/sign-out"><button id="sign-out-btn" class="header-btn">Sign Out</button></a>
+            </div>
+            <div id="profile-btn-container">
+                <a href="/user/profile/<%= locals.user.id %>"><button id="profile-btn" class="header-btn"><%= locals.user.name %></button></a>
+            </div>
+            
+        <%} else{%>
+            <div id="sign-up-btn-container">
+                <a href="/user/sign-up"><button id="sign-up-btn" class="header-btn">Sign Up</button></a>
+            </div>
+            <div id="sign-in-btn-container">
+                <a href="/user/sign-in"><button id="sign-in-btn" class="header-btn">Sign In</button></a>
+            </div>
+        <%}%>
+    </div>
+    
     
 </header>

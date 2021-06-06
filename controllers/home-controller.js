@@ -1,4 +1,6 @@
+const { serializeUser } = require("passport");
 const Post=require("../models/post");
+const User=require("../models/users");
 
 module.exports.home=function(req,res){
 
@@ -13,6 +15,13 @@ module.exports.home=function(req,res){
         }
     })
     .exec(function(err,posts){
-        res.render("home.ejs",{posts:posts});
+        User.find({},(err,users)=>{
+            res.render("home.ejs",
+            {
+                posts:posts,
+                users:users
+            });
+        })
+        
     });
 };
