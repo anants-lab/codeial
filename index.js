@@ -15,6 +15,9 @@ const passport=require("passport");
 const passportLocal=require("./config/passport-local-strategy");
 const MongoStore=require('connect-mongo');
 const sassMiddleware=require("node-sass-middleware");
+const flash=require("connect-flash");
+const customMWare=require("./config/middleware");
+
 
 //Setting up view engine
 app.set("view engine","ejs");
@@ -29,9 +32,17 @@ app.use(sassMiddleware({
     debug:"true",
     outputStyle:"extended",
     prefix:"/css"
-}))
+}));
 
+//For handling cookies
+app.use(cookieParser());
+//For retrieving data from POST 
+app.use(express.urlencoded());
+//Using for accessing static files
+app.use(express.static("./assets"));
 
+//Tells our app that views that are going to be rendered belong to a layout
+app.use(expressLayouts);
 
 //MongoStore is used to store the session cookie in db  
 app.use(session({
@@ -58,22 +69,20 @@ app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
 
-//Using for accessing static files
-app.use(express.static("./assets"));
 
-//For handling cookies
-app.use(cookieParser());
-//For retrieving data from POST 
-app.use(express.urlencoded());
+//With the flash middleware in place, all requests will have a req.flash() function that can be used for flash messages.
+//req.flash(type,value); creats an object with key "type" and value "value"
+//req.flash(type); finds the value with key "type";
+app.use(flash());
 
-//Tells our app that views that are going to be rendered belong to a layout
-app.use(expressLayouts);
+app.use(customMWare.setFlash);
+
+
+
 
 //Maps router to URL segment "/"
 //Sends all the request with URL starting with "/" to the path /routers/index.js
 app.use("/",require("./routers/index.js"));
-
-
 
 
 
