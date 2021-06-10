@@ -1,14 +1,14 @@
-<div class="each-post">
-    <div id="each-post-content">
+<div class="each-post" id="post-<%= post._id %>">
+    <div class="each-post-content">
         <% if(locals.user && post.user.id==locals.user.id){ %>
-            <a href="/post/destroy/<%= post.id %>">x</a>
-            <%}%>
+            <a href="/post/destroy/<%= post._id %>" class="delete-post-btn">x</a>
+        <%}%>
             <h3><%= post.user.name %></h3>
             <p><%= post.content %></p>
     </div>
     
 
-    <div id="comment-container">
+    <div class="comment-container">
         <% for(comment of post.comments){ %>
             <%- include('_comment') -%>
         <%}%>
@@ -16,7 +16,7 @@
 
     <%if(locals.user){%>
         <div class="post-comment">
-            <form action="/comment/create" method="POST">
+            <form action="/comment/create" method="POST" class="comment-form">
                 <textarea name="content" cols="30" rows="1" placeholder="Comment"></textarea>
                 <input type="hidden" name="post" value=<%= post._id%>>
                 <input type="submit">  

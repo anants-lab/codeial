@@ -11,9 +11,19 @@ module.exports.create=async (req,res)=>{
                 user:req.user._id,
                 post:req.body.post  
             });
-                    //if(err){console.log("error in creating a comment"); return;}
+            
             post.comments.push(comment);
             post.save();
+            if(req.xhr){
+                return res.status(200).json({
+                    data:{
+                        comment:comment,
+                        user:req.user.name
+                    },
+                    message:"Comment Created"
+                    
+                });
+            }
             res.redirect("/");
         }
     }
@@ -31,7 +41,17 @@ try{
             let postid=comment.post;
             comment.remove();
     
-            await Post.findByIdAndUpdate(postid,{$pull:{comments:req.params.id}})
+            await Post.findByIdAndUpdate(postid,{$pull:{comments:req.params.id}});
+
+            if(req.xhr){
+                return res.status(200).json({
+                    data:{
+                        id:req.params.id
+                    },
+                    message:"Comment Deleted"
+                    
+                });
+            }
             
             res.redirect("back");
                

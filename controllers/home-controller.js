@@ -7,6 +7,7 @@ module.exports.home=async function(req,res){
     try{
         //Populate 'user' field of post(which contains only user id)  with entire object of user.
         let posts= await Post.find({})
+        .sort("-createdAt")
         .populate("user")
         .populate({
             path:"comments",

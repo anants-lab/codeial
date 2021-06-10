@@ -73,6 +73,8 @@ app.use(passport.setAuthenticatedUser);
 //With the flash middleware in place, all requests will have a req.flash() function that can be used for flash messages.
 //req.flash(type,value); creats an object with key "type" and value "value"
 //req.flash(type); finds the value with key "type";
+//stores the flash value once and then delete upon refresh
+//This middleware uses session so must be below session middleware
 app.use(flash());
 
 app.use(customMWare.setFlash);

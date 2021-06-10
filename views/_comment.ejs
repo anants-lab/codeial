@@ -1,8 +1,8 @@
-<div class="each-comment">
+<div class="each-comment" id="comment-<%= comment.id %>">
     <span><%= comment.user.name %></span>
     <span><%= comment.content %></span>
     <% if(locals.user && comment.user.id==locals.user.id){ %>
-    <a href="/comment/destroy/<%= comment.id %>">x</a>
+    <a href="/comment/destroy/<%= comment.id %>" class="delete-comment-btn">x</a>
     <%}%>
 </div>
     
