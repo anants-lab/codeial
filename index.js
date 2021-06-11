@@ -74,7 +74,7 @@ app.use(passport.setAuthenticatedUser);
 //req.flash(type,value); creats an object with key "type" and value "value"
 //req.flash(type); finds the value with key "type";
 //stores the flash value once and then delete upon refresh
-//This middleware uses session so must be below session middleware
+//This middleware uses session ,so this middleware must be placed below session middleware
 app.use(flash());
 
 app.use(customMWare.setFlash);

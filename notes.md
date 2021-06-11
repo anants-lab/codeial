@@ -18,3 +18,20 @@ $("..") , the jquery selector, is used to select matched elements.
 
 * After get the original element, you can wrap it to be a jquery object, by calling $(originalElement),
 then you can call jquery methods on the wrapped object.
+
+<h2>AJAX</h2></br>
+* Converting to AJAX so as we can call a url and add/remove elements using JavaScript. 
+* This helps as every time we do not need to reload pages again and again to add/remove elements.
+
+<pre>
+$.ajax({
+    type:"get",
+    url: "/create"
+    success:function(){
+        
+    },
+    error:function(err){
+        console.log(err.responseText);
+    }
+});
+</pre>

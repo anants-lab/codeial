@@ -42,6 +42,36 @@ module.exports.profile=function(req,res){
     });
 }
 
+module.exports.update= async function(req,res){
+    
+    try{
+        let user=await User.findById(req.params.id);
+
+        //uploadedAvatar is a middleware i.e.  uploadedAvatar = function(req,res,next){}
+        //We are calling uploadedAvatar(req,res,()=>{});
+        //What we are doing here is passing a custom next() function
+        User.uploadedAvatar(req,res,(err)=>{
+            if(err){
+                console.log("*****Multer Error*****",err);
+            }
+
+            if(req.file){
+                user.avatar=User.avatarPath+"/"+req.file.filename;
+                user.save();
+            }
+            return res.redirect("back");
+        });
+    }
+    catch(err){
+        req.flash('error',err);
+        return res.redirect("back");
+    } 
+}
+
+
+
+
+
 module.exports.destroySession=function(req,res){
     req.logout();
     req.flash('success','Logged out');

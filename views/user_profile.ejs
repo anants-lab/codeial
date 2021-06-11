@@ -2,7 +2,16 @@
 
 <h1>Codeial/ User Profile</h1>
 
+
+
 <p><%= proUser.name%></p>
 <p><%= proUser.email%></p>
+
+<% if(proUser.id==user.id) {%>
+    <form method="POST" action="/user/update/<%= proUser.id %>" enctype="multipart/form-data">
+        <input type="file" name="avatar" placeholder="Profile Picture">
+        <input type="submit" value="Upload">
+    </form>
+<% } %>
         
         

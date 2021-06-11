@@ -4,7 +4,7 @@ header {
   background-color: lightblue;
   color: white; }
   header h2 {
-    width: 50%;
+    width: 65%;
     margin-top: 12px;
     margin-left: 8px; }
     header h2 a {
@@ -14,7 +14,7 @@ header {
 #header-btn-container {
   display: flex;
   flex-direction: row-reverse;
-  width: 50%; }
+  width: 35%; }
 
 .header-btn {
   padding: 10px;
