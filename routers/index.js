@@ -15,3 +15,5 @@ router.use("/user",require("./user.js"));
 router.use("/post",require("./post.js"));
 
 router.use("/comment",require("./comment.js"));
+
+router.use("/api",require("./api/index.js"));

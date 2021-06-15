@@ -1,4 +1,6 @@
 const User = require("../models/users");
+const fs=require("fs");
+const path=require("path");
 
 module.exports.signUpPage=function(req,res){
     if(req.isAuthenticated()){
@@ -44,28 +46,36 @@ module.exports.profile=function(req,res){
 
 module.exports.update= async function(req,res){
     
-    try{
-        let user=await User.findById(req.params.id);
-
-        //uploadedAvatar is a middleware i.e.  uploadedAvatar = function(req,res,next){}
-        //We are calling uploadedAvatar(req,res,()=>{});
-        //What we are doing here is passing a custom next() function
-        User.uploadedAvatar(req,res,(err)=>{
-            if(err){
-                console.log("*****Multer Error*****",err);
-            }
-
-            if(req.file){
-                user.avatar=User.avatarPath+"/"+req.file.filename;
-                user.save();
-            }
+    if(req.user.id==req.params.id){
+        try{
+            let user=await User.findById(req.params.id);
+    
+            //uploadedAvatar is a middleware i.e.  uploadedAvatar = function(req,res,next){}
+            //We are calling uploadedAvatar(req,res,()=>{});
+            //What we are doing here is passing a custom next() function
+            User.uploadedAvatar(req,res,(err)=>{
+                if(err){
+                    console.log("*****Multer Error*****",err);
+                }
+    
+                if(req.file){
+                    //If avatar already exist and file is present in uploads/user/avatar 
+                    //then first delete the previous avatar and then add the new one.
+                    if(user.avatar && fs.existsSync(path.join(__dirname,"..",user.avatar))){
+                        fs.unlinkSync(path.join(__dirname,"..",user.avatar));
+                    }
+                    user.avatar=User.avatarPath+"/"+req.file.filename;
+                    user.save();
+                }
+                return res.redirect("back");
+            });
+        }
+        catch(err){
+            req.flash('error',err);
             return res.redirect("back");
-        });
+        } 
     }
-    catch(err){
-        req.flash('error',err);
-        return res.redirect("back");
-    } 
+    
 }
 
 

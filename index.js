@@ -13,6 +13,7 @@ const User = require("./models/users.js");
 const session=require("express-session");
 const passport=require("passport");
 const passportLocal=require("./config/passport-local-strategy");
+const passportJWT=require("./config/passport-jwt-strategy");
 const MongoStore=require('connect-mongo');
 const sassMiddleware=require("node-sass-middleware");
 const flash=require("connect-flash");
@@ -40,6 +41,7 @@ app.use(cookieParser());
 app.use(express.urlencoded());
 //Using for accessing static files
 app.use(express.static("./assets"));
+app.use("/uploads",express.static(__dirname+"/uploads"));
 
 //Tells our app that views that are going to be rendered belong to a layout
 app.use(expressLayouts);
