@@ -35,7 +35,7 @@
 
     let newCommentDom=function(data){
         return $(`<div class="each-comment" id="comment-${data.data.comment._id}">
-                        <span>${data.data.user}</span>
+                        <span>${data.data.comment.user.name}</span>
                         <span>${data.data.comment.content}</span>
                         <a href="/comment/destroy/${data.data.comment._id}" class="delete-comment-btn">x</a>
                     </div>`);
