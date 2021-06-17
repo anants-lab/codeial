@@ -35,10 +35,14 @@
 
     let newCommentDom=function(data){
         return $(`<div class="each-comment" id="comment-${data.data.comment._id}">
-                        <span>${data.data.comment.user.name}</span>
-                        <span>${data.data.comment.content}</span>
-                        <a href="/comment/destroy/${data.data.comment._id}" class="delete-comment-btn">x</a>
-                    </div>`);
+        <div class='comment-bubble'>
+            <div class='comment-user-name'>${data.data.comment.user.name}</div>
+            <div class='comment-user-content'>${data.data.comment.content}</div>
+        </div>
+        
+        <a href="/comment/destroy/${data.data.comment._id}" class="delete-comment-btn"><i class="fas fa-window-close"></i></a>
+        
+    </div>`);
     };
 
     let deleteComment=function(delBtn){

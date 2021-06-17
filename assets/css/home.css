@@ -42,6 +42,67 @@
   padding: 10px;
   margin-bottom: 12px;
   padding-left: 15px; }
-  .each-post #each-post-content {
+  .each-post .each-post-content {
     border-bottom: 1px solid lightgrey;
     margin-bottom: 10px; }
+    .each-post .each-post-content .each-post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start; }
+      .each-post .each-post-content .each-post-header h3 {
+        margin-top: 10px; }
+      .each-post .each-post-content .each-post-header .delete-post-btn {
+        color: red; }
+
+.actions-container .actions-bar {
+  display: flex;
+  text-align: center;
+  margin-bottom: 5px; }
+  .actions-container .actions-bar a {
+    width: 50%; }
+  .actions-container .actions-bar .actions-btn {
+    border: none;
+    padding: 8px;
+    font-size: 15px;
+    width: 100%; }
+  .actions-container .actions-bar .actions-btn:hover {
+    background-color: lightgrey; }
+
+.actions-container .post-comment {
+  display: none;
+  margin-top: 20px; }
+  .actions-container .post-comment form .comment-form-content {
+    display: flex; }
+    .actions-container .post-comment form .comment-form-content textarea {
+      resize: none;
+      padding: 8px;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid black;
+      font-size: 15px; }
+    .actions-container .post-comment form .comment-form-content textarea:focus {
+      outline: none;
+      border-bottom: 1px solid lightgrey; }
+  .actions-container .post-comment form .submit-comment-form-btn {
+    border: none;
+    padding: 5px;
+    margin: 0px; }
+
+.actions-container .comment-container {
+  display: none; }
+  .actions-container .comment-container .each-comment {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center; }
+    .actions-container .comment-container .each-comment .comment-bubble {
+      background-color: lightgrey;
+      border-radius: 15px;
+      padding: 10px;
+      margin-right: 10px;
+      max-width: 80%; }
+      .actions-container .comment-container .each-comment .comment-bubble .comment-user-name {
+        font-size: small; }
+      .actions-container .comment-container .each-comment .comment-bubble .comment-user-content {
+        font-size: medium; }
+    .actions-container .comment-container .each-comment .delete-comment-btn {
+      color: red; }
