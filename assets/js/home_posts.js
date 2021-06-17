@@ -33,7 +33,7 @@
     }
     let newPostDom=function(data){
         return $(`
-            <div class="each-post" id="post-<%= post._id %>">
+            <div class="each-post" id="post-${data.data.post._id}">
                 <div class="each-post-content">
                     <div class='each-post-header'>
                         <h3>${data.data.user}</h3>

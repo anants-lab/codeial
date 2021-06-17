@@ -9,6 +9,15 @@
         margin-left:10%;
         margin-bottom: 50px;
     }
+    a{
+        text-decoration: none;
+    }
+    a:visited{
+        color:black;
+    }
+    a:hover{
+        color:lightgrey;
+    }
     border-right: 2px solid lightgrey;
 }
 #friends-list{
@@ -41,12 +50,12 @@
 
 .each-post{
     box-shadow: 0 0 4px lightgrey;
-    padding:10px;
     margin-bottom:12px;
-    padding-left:15px;
     .each-post-content{
         border-bottom:1px solid lightgrey;
         margin-bottom: 10px;
+        word-wrap: break-word;
+        padding:15px;
         .each-post-header{
             display:flex;
             justify-content: space-between;
@@ -62,7 +71,7 @@
 }
 
 .actions-container{
-
+    padding:15px;
     .actions-bar{
         display:flex;
         text-align: center;
@@ -117,17 +126,19 @@
             margin-bottom:5px;
             align-items: center;
             .comment-bubble{
-                background-color: lightgrey;
+                background-color: whitesmoke;
                 border-radius:15px;
                 padding:10px;
                 margin-right:10px;
                 max-width:80%;
+                
                 
                 .comment-user-name{
                     font-size: small;
                 }
                 .comment-user-content{
                     font-size: medium;
+                    word-wrap: break-word;
                 }
             }
             .delete-comment-btn{
