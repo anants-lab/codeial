@@ -2,7 +2,7 @@
     
     
     let createComment=function(post){
-        //console.log("hello");
+        // console.log(post);
         let commentForm=$(".comment-form",post);
         commentForm.submit(function(e){
             e.preventDefault();
@@ -14,6 +14,8 @@
                     
                     let newComment=newCommentDom(data);
                     $(".comment-container",post).prepend(newComment);
+                    let c=parseInt($('.comment-count > span > span',post).text());
+                    $('.comment-count > span > span',post).text(c+1);
                     new Noty({
                         theme:"relax",
                         text: data.message,
@@ -53,6 +55,9 @@
                 url:delBtn.prop("href"),
                 success:function(data){
                     $(`#comment-${data.data.id}`).remove();
+                    let post=$(`#post-${data.data.post._id}`);
+                    let c=parseInt($('.comment-count > span > span',post).text());
+                    $('.comment-count > span > span',post).text(c-1);
                     new Noty({
                         theme:"relax",
                         text: data.message,

@@ -56,12 +56,13 @@ try{
             let postid=comment.post;
             comment.remove();
     
-            await Post.findByIdAndUpdate(postid,{$pull:{comments:req.params.id}});
+            let post=await Post.findByIdAndUpdate(postid,{$pull:{comments:req.params.id}});
 
             if(req.xhr){
                 return res.status(200).json({
                     data:{
-                        id:req.params.id
+                        id:req.params.id,
+                        post:post
                     },
                     message:"Comment Deleted"
                     

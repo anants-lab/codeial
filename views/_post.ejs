@@ -8,7 +8,15 @@
         </div>
         <p><%= post.content %></p>
     </div>
+    <div class='count-bar-container'>
+        <div class= "like-count">
+            <span><span><%= post.likes.length %></span> Likes</span>
+        </div>
+        <div class= "comment-count">
+            <span><span><%= post.comments.length %></span> Comments</span>
+        </div>
 
+    </div>
     <div class='actions-container'>
         <div class="actions-bar">
             <% if(locals.user){%>

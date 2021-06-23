@@ -44,6 +44,15 @@
                     </div>
                     <p>${data.data.post.content}</p>
                 </div>
+                <div class='count-bar-container'>
+                    <div class= "like-count">
+                        <span><span>0</span> Likes</span>
+                    </div>
+                    <div class= "comment-count">
+                        <span><span>0</span> Comments</span>
+                    </div>
+
+                </div>
             
                 <div class='actions-container'>
                     <div class="actions-bar">

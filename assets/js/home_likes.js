@@ -8,9 +8,13 @@ let toggleLike=function(likeable){
                 
                 if(!data.data.deleted){
                     $('.like-button i',likeable).css("color","red");
+                    let c=parseInt($('.like-count > span > span',likeable).text());
+                    $('.like-count > span > span',likeable).text(c+1);
                 }
                 else{
                     $('.like-button i',likeable).css("color","grey");
+                    let c=parseInt($('.like-count > span > span',likeable).text());
+                    $('.like-count > span > span',likeable).text(c-1);
                 }
             }
 

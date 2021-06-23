@@ -70,6 +70,21 @@
     }
 }
 
+.count-bar-container{
+    display:flex;
+    padding:8px 60px;
+    border-top: 1px lightgrey solid;
+    font-size: 13px;
+    .like-count{
+        width:50%;
+    }
+    .comment-count{
+        width:50%;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
 .actions-container{
     margin:0 15px 15px 15px;
     padding:15px 0 0 0;
@@ -176,7 +191,7 @@
         display:none;
     }
     #mid-side{
-        width:90%;
+        width:100%;
         border-right: none;
     }
     #post-container{
