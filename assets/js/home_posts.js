@@ -24,6 +24,7 @@
                     deletePost($(".delete-post-btn" ,newPost));
                     createComment(newPost);
                     addCommentEvent(newPost);
+                    toggleLike(newPost);
                 },
                 error:function(error){
                     console.log(error.responseText);
@@ -46,8 +47,8 @@
             
                 <div class='actions-container'>
                     <div class="actions-bar">
-                        <a class='like-button'><button class='actions-btn'>
-                            <i class="far fa-heart"></i> Like
+                        <a class='like-button' href='/likes/toggle/?id=${data.data.post._id}&type=Post'><button class='actions-btn'>
+                            <i class="fas fa-heart"></i> Like
                         </button></a>
                         <a class='comment-button'><button class='actions-btn'>
                             <i class="far fa-comment"></i> Comment
@@ -122,6 +123,7 @@
             deletePost($(".delete-post-btn",post));
             createComment($(post));
             addCommentEvent($(post));
+            toggleLike($(post));
         }
         for(delCommentBtn of delCommentBtns){
             deleteComment($(delCommentBtn));

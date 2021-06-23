@@ -1,5 +1,6 @@
 const Comment = require("../models/comment");
 const Post = require("../models/post");
+const Like=require("../models/like");
 
 try{
     module.exports.create= async function(req,res){
@@ -28,28 +29,46 @@ catch(err){
 }
 
 
-module.exports.destroy=(req,res)=>{
-    Post.findById(req.params.id,(err,post)=>{
+module.exports.destroy=async function(req,res){
+    try{
+        let post= await Post.findById(req.params.id);
         //.id means converting Object id into string 
         if(post.user==req.user.id){
+
+            await Like.deleteMany({
+                likeable:post._id,
+                onModel:'Post'
+            });
+            await Like.deleteMany({
+                likeable:{$in:post.comments},
+                onModel:'Comment'
+            });
+
             post.remove();
 
-            Comment.deleteMany({post:req.params.id},(err)=>{
-                if(req.xhr){
-                    
-                    return res.status(200).json({
-                        data:req.params.id,
-                        message:"Post deleted!"
-                    });
-                }
-                return res.redirect("back");
-            });
+            await Comment.deleteMany({post:req.params.id});
+
+            if(req.xhr){
+                
+                return res.status(200).json({
+                    data:req.params.id,
+                    message:"Post deleted!"
+                });
+            }
+            
+            return res.redirect("back");
         }
         else{
             return res.redirect("back");
         }
-    })
+    }
+    catch(err){
+        req.flash('error', err);
+        return res.redirect('back');
+    }
+    
 }
+
 
 
 

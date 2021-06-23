@@ -11,9 +11,24 @@
 
     <div class='actions-container'>
         <div class="actions-bar">
-            <a class='like-button'><button class='actions-btn'>
-                <i class="far fa-heart"></i> Like
+            <% if(locals.user){%>
+            <a class='like-button' href='/likes/toggle/?id=<%= post._id %>&type=Post'><button class='actions-btn'>
+                <%
+                    var liked=false;
+                    for(like of post.likes){
+                        if(like.user==locals.user.id){ %>
+                            <i class='fas fa-heart' style='color:red'></i> Like
+                        <%  liked=true;
+                            break;
+                        }
+                    }
+                    if(!liked){ %>
+                        <i class='fas fa-heart' style='color:gray'></i> Like
+                    <%}%>
+                
+                
             </button></a>
+            <%}%>
             <a class='comment-button'><button class='actions-btn'>
                 <i class="far fa-comment"></i> Comment
             </button></a>

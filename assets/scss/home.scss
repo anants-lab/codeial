@@ -51,9 +51,9 @@
 .each-post{
     box-shadow: 0 0 4px lightgrey;
     margin-bottom:12px;
+    border-radius:7px;
     .each-post-content{
-        border-bottom:1px solid lightgrey;
-        margin-bottom: 10px;
+        // border-bottom:1px solid lightgrey;
         word-wrap: break-word;
         padding:15px;
         .each-post-header{
@@ -71,13 +71,17 @@
 }
 
 .actions-container{
-    padding:15px;
+    margin:0 15px 15px 15px;
+    padding:15px 0 0 0;
+    border-top:1px solid lightgrey;
     .actions-bar{
         display:flex;
         text-align: center;
-        margin-bottom: 5px;
         a{
-            width:50%;
+            width:100%;
+            i{
+                color:grey;
+            }
         }
         .actions-btn{
             border:none;
@@ -115,12 +119,12 @@
             .submit-comment-form-btn{
                 border:none;
                 padding:5px;
-                margin:0px;
             }
         }
     }
     .comment-container{
         display:none;
+        margin-top:10px;
         .each-comment{
             display: flex;
             margin-bottom:5px;
@@ -149,6 +153,36 @@
     }
 }
 
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+    #left-side{
+        width:30%;
+    }
+    #mid-side{
+      width:70%;
+      border-right: none;
+    }
+    #post-container{
+        width:70%;
+    }
+  }
+  
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 600px) {
+    #home-variable{
+        justify-content: center;
+    }
+    #left-side{
+        display:none;
+    }
+    #mid-side{
+        width:90%;
+        border-right: none;
+    }
+    #post-container{
+        width:90%;
+    }
+  }
 
 
 

@@ -17,3 +17,5 @@ router.use("/post",require("./post.js"));
 router.use("/comment",require("./comment.js"));
 
 router.use("/api",require("./api/index.js"));
+
+router.use("/likes",require("./likes"));

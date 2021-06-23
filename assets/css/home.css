@@ -45,10 +45,9 @@
 
 .each-post {
   box-shadow: 0 0 4px lightgrey;
-  margin-bottom: 12px; }
+  margin-bottom: 12px;
+  border-radius: 7px; }
   .each-post .each-post-content {
-    border-bottom: 1px solid lightgrey;
-    margin-bottom: 10px;
     word-wrap: break-word;
     padding: 15px; }
     .each-post .each-post-content .each-post-header {
@@ -61,13 +60,16 @@
         color: red; }
 
 .actions-container {
-  padding: 15px; }
+  margin: 0 15px 15px 15px;
+  padding: 15px 0 0 0;
+  border-top: 1px solid lightgrey; }
   .actions-container .actions-bar {
     display: flex;
-    text-align: center;
-    margin-bottom: 5px; }
+    text-align: center; }
     .actions-container .actions-bar a {
-      width: 50%; }
+      width: 100%; }
+      .actions-container .actions-bar a i {
+        color: grey; }
     .actions-container .actions-bar .actions-btn {
       border: none;
       padding: 8px;
@@ -92,10 +94,10 @@
         border-bottom: 1px solid lightgrey; }
     .actions-container .post-comment form .submit-comment-form-btn {
       border: none;
-      padding: 5px;
-      margin: 0px; }
+      padding: 5px; }
   .actions-container .comment-container {
-    display: none; }
+    display: none;
+    margin-top: 10px; }
     .actions-container .comment-container .each-comment {
       display: flex;
       margin-bottom: 5px;
@@ -113,3 +115,25 @@
           word-wrap: break-word; }
       .actions-container .comment-container .each-comment .delete-comment-btn {
         color: red; }
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+  #left-side {
+    width: 30%; }
+  #mid-side {
+    width: 70%;
+    border-right: none; }
+  #post-container {
+    width: 70%; } }
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  #home-variable {
+    justify-content: center; }
+  #left-side {
+    display: none; }
+  #mid-side {
+    width: 90%;
+    border-right: none; }
+  #post-container {
+    width: 90%; } }

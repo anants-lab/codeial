@@ -11,10 +11,12 @@ module.exports.home=async function(req,res){
         .populate("user")
         .populate({
             path:"comments",
+            options: { sort:'-createdAt'},
             populate:{
-                path:"user"
+                path:"user likes"
             }
-        });
+        })
+        .populate('likes');
         
         let users=await User.find({});
 
@@ -23,7 +25,7 @@ module.exports.home=async function(req,res){
             posts:posts,
             users:users
         });
-        }
+    }
     catch(err){
         console.log("Error", err);
     }
